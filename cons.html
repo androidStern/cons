@@ -1,0 +1,22 @@
+<head>
+  <title>cons</title>
+</head>
+
+<body>
+{{> urlList}}
+</body>
+
+<template name="urlList">
+<ul>
+  {{#each urls}}
+    <li>{{> url}}</li>
+  {{/each}}
+  </ul>
+</template>
+
+<template name="url">
+<button id="sample">
+  {{this}}
+</button>
+</template>
+
