@@ -1,23 +1,27 @@
-urls = [
-	"http://localhost:8080/SD1.wav",
-	"http://localhost:8080/SD1.wav",
-	"http://localhost:8080/RIM1.wav",
-	"http://localhost:8080/Perc8.wav",
-	"http://localhost:8080/Perc7.wav",
-	"http://localhost:8080/Perc6.wav",
-	"http://localhost:8080/Perc5.wav",
-	"http://localhost:8080/Perc4.wav",
-	"http://localhost:8080/Perc3.wav",
-	"http://localhost:8080/Perc2.wav",
-	"http://localhost:8080/Perc1.wav",
-	"http://localhost:8080/HH3.wav",
-	"http://localhost:8080/HH2.wav",
-	"http://localhost:8080/HH1.wav",
-	"http://localhost:8080/CYM1.wav",
-	"http://localhost:8080/CLAP2.wav"
-	]
+# Use this to startup the http server:
+#
+#  	node /usr/local/lib/node_modules/http-server/bin/http-server "Users/YOURUSERNAME/cons/Public/"
 
-urlString = urls.join(" ")
+root = "http://localhost:8080/"
+ext = ".wav"
+urls = [
+	"SD1",
+	"SD1",
+	"RIM1",
+	"Perc8",
+	"Perc7",
+	"Perc6",
+	"Perc5",
+	"Perc4",
+	"Perc3",
+	"Perc2",
+	"Perc1",
+	"HH3",
+	"HH2",
+	"HH1",
+	"CYM1",
+	"CLAP2"
+	]
 
 Template.urlList.urls = ()->
 	return urls
@@ -25,8 +29,7 @@ Template.urlList.urls = ()->
 Template.url.events =
 	'click #sample': (e,t)->
 		e.preventDefault()
-
-		console.log t.data.toString()
 		if window.VST
-			window.VST.log(t.data.toString())
+			currentURL = root + t.data.toString() + ext
+			window.VST.log(currentURL)
 
