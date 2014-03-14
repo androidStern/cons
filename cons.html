@@ -7,6 +7,8 @@
 </body>
 
 <template name="urlList">
+<h1>Number of sounds loaded: {{soundLoaded}}</h1>
+<h1>Vst ready for sounds: {{vstReady}}</h1>
 <ul>
   {{#each urls}}
     <li>{{> url}}</li>
@@ -15,7 +17,7 @@
 </template>
 
 <template name="url">
-<button id="sample">
+<button id="sample" >
   {{this}}
 </button>
 </template>
